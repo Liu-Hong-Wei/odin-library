@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body-container {
+    width: 100vw;
+    height: 95vh;
+    padding: 0vh 0vh;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    height: 5vh;
+
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font: 800 3vh 'Poppins', sans-serif;
+    color: lightcoral;
+    padding: 1vh 2vh;
+}
+
+header .add-btn {
+    color: cadetblue;
+    font: 800 2vh 'Poppins', sans-serif;
+    border: none;
+    padding: 1vh 2vh;
+    background-color: lightblue;
+    justify-self: flex-end;
+    align-content: stretch;
+}
+
+.gallery-container {
+    padding: 3vh;
+    min-width: 50vw;
+    max-width: 80vw;
+    min-height: 35vh;
+    max-height: 95vh;
+    background-color: lightgray;
+    border-radius: 5vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3vh;
+}
+
+.card-container {
+    width: 20vh;
+    height: 30vh;
+    background-color: cadetblue;
+    border-radius: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    width: 100vw;
+    height: 100vh;
+    padding: 5vh;
+    background-color: blue;
+}
+
+.add-book-form {
+    padding: 2vh;
+    width: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+}
