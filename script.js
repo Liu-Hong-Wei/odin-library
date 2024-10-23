@@ -19,6 +19,7 @@ addBook.addEventListener("click", (e) => {
   if (hasUnfinishedForm) {
     return;
   }
+  hasUnfinishedForm  = true
   const form = document.createElement("fieldset");
   form.classList.add("book-form");
 
@@ -69,5 +70,6 @@ addBook.addEventListener("click", (e) => {
     myLibrary.push(book);
     const form = document.querySelector("fieldset");
     form.remove();
+    hasUnfinishedForm = false;
   });
 });
