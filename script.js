@@ -1,22 +1,26 @@
-  const bContainer = document.querySelector(".body-container");
+const bContainer = document.querySelector(".body-container");
+const gallery = document.querySelector(".gallery-container");
 const myLibrary = [];
 let hasUnfinishedForm = false;
 
-function Book(name, author, description) {
-  this.name = name;
+function Book(title, author, description) {
+  this.title = title;
   this.author = author;
   this.description = description;
 }
 
-function addBookToLibrary() {
-  // do stuff here
+function addBookToLibrary(book) {
+  myLibrary.push(book);
 }
 
 const addBook = document.querySelector(".add-btn");
 
 addBook.addEventListener("click", (e) => {
+  if (hasUnfinishedForm) {
+    return;
+  }
   const form = document.createElement("fieldset");
-  form.classList.add("add-book-form");
+  form.classList.add("book-form");
 
   const legend = document.createElement("legend");
   legend.textContent = "Add Book Info";
@@ -41,16 +45,29 @@ addBook.addEventListener("click", (e) => {
   submit.textContent = "Add";
   form.appendChild(submit);
   bContainer.appendChild(form);
-});
 
-const submit = document.querySelector(".submit");
+  submit.addEventListener("click", (e) => {
+    e.preventDefault();
+    const title = document.querySelector("#title").value;
+    const author = document.querySelector("#author").value;
+    const description = document.querySelector("#description").value;
+    // if (title === "" || author === "") {
+    //   alert("Please fill in all fields");
+    //   return;
+    // }
+    const newCard = document.createElement("div");
+    for (let i = 0; i < 3; i++) {
+      const item = document.createElement("div");
+      item.classList.add(`${info[i]}`);
+      item.innerHTML = `${eval(info[i])}`;
+      newCard.appendChild(item);
+    }
 
-submit.addEventListener("click", (e) => {
-  e.preventDefault();
-  const title = document.querySelector("#title").value;
-  const author = document.querySelector("#author").value;
-  const description = document.querySelector("#description").value;
-  const book = new Book(title, author, description);
-  myLibrary.push(book);
-  console.log(myLibrary);
+    newCard.classList.add("card-container");
+    gallery.appendChild(newCard);
+    const book = new Book(title, author, description);
+    myLibrary.push(book);
+    const form = document.querySelector("fieldset");
+    form.remove();
+  });
 });
