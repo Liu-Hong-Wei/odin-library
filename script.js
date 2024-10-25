@@ -57,19 +57,15 @@ submit.addEventListener("click", (e) => {
   const newCard = document.createElement("div");
   newCard.classList.add("card-container");
 
-  const title = document.querySelector("#title").value;
-  const author = document.querySelector("#author").value;
-  const pages = document.querySelector("#pages").value;
-  const status = document.querySelector("#status").value;
-  const description = document.querySelector("#description").value;
   let info = ["status", "title", "author", "pages", "description"];
   for (let i = 0; i < 5; i++) {
     const item = document.createElement("div");
+    const value = document.querySelector(`#${info[i]}`).value;
     item.classList.add(`${info[i]}`);
-    if (info[i] == "status") {
-      item.classList.add(`${status}`);
+    if (info[i] === "status") {
+      item.classList.add(`${value}`);
     }
-    item.innerHTML = `${eval(info[i])}`;
+    item.textContent = `${value}`;
     newCard.appendChild(item);
   }
   addToggleStatusBtn(newCard);
