@@ -68,10 +68,22 @@ header .add-btn {
 }
 
 .card-container div {
+  border-radius: 1vh;
   padding-bottom: 1vh;
   padding-left: 1vh;
 }
 
+.card-container button {
+  width: auto;
+  height: 3vh;
+  padding: 1vh;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: red;
+  text-align: center;
+  font-size: 1.5vh;
+  margin: auto 0 0 0;
+}
 .card-container .title {
   font-size: 3vh;
   margin: 1vh;
@@ -79,15 +91,15 @@ header .add-btn {
   background-color: aliceblue;
   border-radius: 1vh;
 }
-.card-container #reading {
+.card-container .reading {
   background: linear-gradient(90deg, orange, red);
 }
 
-.card-container #want {
+.card-container .want {
   background: linear-gradient(90deg, lightblue, orange);
 }
 
-.card-container #finished {
+.card-container .finished {
   background: linear-gradient(90deg, red, green);
 }
 
