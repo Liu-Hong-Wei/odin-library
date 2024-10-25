@@ -1,5 +1,10 @@
 const bContainer = document.querySelector(".body-container");
 const gallery = document.querySelector(".gallery-container");
+const addBook = document.querySelector(".add-btn");
+const form = document.querySelector(".book-form");
+const cancel = document.querySelector(".cancel");
+const submit = document.querySelector(".submint");
+
 const myLibrary = [];
 let hasUnfinishedForm = false;
 
@@ -13,63 +18,40 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
-const addBook = document.querySelector(".add-btn");
-
 addBook.addEventListener("click", (e) => {
-  if (hasUnfinishedForm) {
-    return;
-  }
-  hasUnfinishedForm  = true
-  const form = document.createElement("fieldset");
-  form.classList.add("book-form");
+  form.showModal();
+  form.style.position = "fixed";
+  form.style.top = "50%";
+  form.style.left = "50%";
+  form.style.transform = "translate(-50%, -50%)";
+});
 
-  const legend = document.createElement("legend");
-  legend.textContent = "Add Book Info";
-  form.appendChild(legend);
+submit.addEventListener("click", (e) => {
+  e.preventDefault();
+  const title = document.querySelector("#title").value;
+  const author = document.querySelector("#author").value;
+  const pages = document.querySelector("#pages").value;
+  const status = document.querySelector("#status").value;
+  const description = document.querySelector("#description").value;
 
-  let info = ["title", "author", "description"];
-  for (let i = 0; i < 3; i++) {
-    const item = document.createElement("input");
-    const itemLabel = document.createElement("label");
-    item.setAttribute("type", "text");
-    item.setAttribute("name", info[i]);
-    item.setAttribute("id", info[i]);
-    item.classList.add("input");
-    itemLabel.setAttribute("for", info[i]);
-    itemLabel.textContent = info[i];
-    form.appendChild(itemLabel);
-    form.appendChild(item);
-  }
-  const submit = document.createElement("button");
-  submit.classList.add("submit");
-  submit.setAttribute("type", "submit");
-  submit.textContent = "Add";
-  form.appendChild(submit);
-  bContainer.appendChild(form);
-
-  submit.addEventListener("click", (e) => {
-    e.preventDefault();
-    const title = document.querySelector("#title").value;
-    const author = document.querySelector("#author").value;
-    const description = document.querySelector("#description").value;
-    // if (title === "" || author === "") {
-    //   alert("Please fill in all fields");
-    //   return;
-    // }
-    const newCard = document.createElement("div");
-    for (let i = 0; i < 3; i++) {
-      const item = document.createElement("div");
-      item.classList.add(`${info[i]}`);
-      item.innerHTML = `${eval(info[i])}`;
-      newCard.appendChild(item);
+  const newCard = document.createElement("div");
+  newCard.classList.add("card-container");
+  let info = ["title", "author", "pages", "status", "description"];
+  for (let i = 0; i < 5; i++) {
+    const item = document.createElement("div");
+    item.classList.add(`${info[i]}`);
+    if (info[i] == "status") {
+      item.setAttribute("id", `${status}`);
     }
+    item.innerHTML = `${eval(info[i])}`;
+    newCard.appendChild(item);
+  }
+  gallery.appendChild(newCard);
+  const book = new Book(title, author, description);
+  myLibrary.push(book);
+});
 
-    newCard.classList.add("card-container");
-    gallery.appendChild(newCard);
-    const book = new Book(title, author, description);
-    myLibrary.push(book);
-    const form = document.querySelector("fieldset");
-    form.remove();
-    hasUnfinishedForm = false;
-  });
+cancel.addEventListener("click", (e) => {
+  e.preventDefault();
+  form.close();
 });
