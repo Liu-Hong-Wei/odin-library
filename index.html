@@ -13,31 +13,34 @@
       <button class="add-btn">Add a Book</button>
     </header>
     <div class="body-container">
-      <div class="gallery-container">
-        <div class="card-container">
-          <div class="title">This is a book title</div>
-          <div class="author">author name</div>
-          <div class="status">In Progress</div>
-          <div class="pages">12</div>
-          <div class="description"> this is description this is description this is description this is description this is description </div>
-        </div>
-      </div>
+      <div class="gallery-container"></div>
     </div>
 
     <dialog class="book-form">
       <form>
         <h1>Add a book</h1>
         <label for="title">Title: </label>
-        <input type="text" id="title" name="title" required/>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value="The Power of Now"
+          required
+        />
 
         <label for="author">Author: </label>
-        <input type="text" id="author" name="author" />
+        <input type="text" id="author" name="author" value="Eckhart Tolle" />
 
         <label for="pages">Pages: </label>
-        <input type="number" id="pages" name="pages" />
+        <input type="number" id="pages" name="pages" value="236" />
 
         <label for="description">Description: </label>
-        <textarea id="description" name="description" placeholder="Enter something..."></textarea>
+        <textarea
+          id="description"
+          name="description"
+          placeholder="Enter something..."
+          value="The Power of Now: A Guide to Spiritual Enlightenment is a book by Eckhart Tolle. It is a discussion about how people interact with themselves and others. The concept of self-reflection and presence in the moment are presented along with simple exercises for the achievement of its principles. Published in the late 1990s,[1] the book was recommended by Oprah Winfrey[2] and has been translated into 33 languages.[3] As of 2009, it was estimated that three million copies had been sold in North America.[4]"
+        ></textarea>
 
         <label for="status">Status: </label>
         <select name="status" id="status">
@@ -52,10 +55,6 @@
     </dialog>
     <div class="TODO">
       <h1>TODO:</h1>
-      <h2>
-        store book into Library array variable first then display it from
-        Library
-      </h2>
       <h2>CSS is not perfect</h2>
     </div>
   </body>

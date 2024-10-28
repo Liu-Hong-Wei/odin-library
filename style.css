@@ -68,9 +68,11 @@ header .add-btn {
 }
 
 .card-container div {
+  margin: 0.1vw auto;
+  width: 11vw;
   border-radius: 1vh;
-  padding-bottom: 1vh;
-  padding-left: 1vh;
+  /* padding-bottom: 1vh;
+  padding-left: 1vh; */
 }
 
 .card-container button {
@@ -79,11 +81,19 @@ header .add-btn {
   padding: 1vh;
   border-radius: 5px;
   border: 1px solid #ccc;
-  background-color: red;
   text-align: center;
   font-size: 1.5vh;
   margin: auto 0 0 0;
 }
+
+.card-container .toggle-status {
+  background-color: azure;
+}
+
+.card-container .delete {
+  background-color: lightsalmon;
+}
+
 .card-container .title {
   font-size: 3vh;
   margin: 1vh;
@@ -96,7 +106,7 @@ header .add-btn {
 }
 
 .card-container .want {
-  background: linear-gradient(90deg, lightblue, orange);
+  background: linear-gradient(90deg, lightblue, pink);
 }
 
 .card-container .finished {

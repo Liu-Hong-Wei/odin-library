@@ -43,6 +43,7 @@ function showABook(book) {
 function addRemoveBtn(newCard) {
   const remove = document.createElement("button");
   remove.textContent = "Delete";
+  remove.classList.add("delete");
   newCard.appendChild(remove);
   remove.addEventListener("click", (e) => {
     newCard.remove();
@@ -52,6 +53,7 @@ function addRemoveBtn(newCard) {
 function addToggleStatusBtn(newCard) {
   const toggle = document.createElement("button");
   toggle.textContent = "change reading status";
+  toggle.classList.add("toggle-status");
   toggle.addEventListener("click", (e) => {
     const nowStatus = newCard.querySelector(".status");
     const statusOrder = ["want", "reading", "finished"];
